@@ -11,17 +11,19 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         Amortiguador amortiguador = new Amortiguador();
         int numeroBache = 0;
+        int random = 0;
 
         while (amortiguador.numeroDiscos > 4) {
+            random = new Random().nextInt(6) + 2;
             System.out.print("Manejando en carretera.");
-            for (int i = 0; i < new Random().nextInt(6) + 2; i++) {
+            for (int i = 0; i < random; i++) {
                 Thread.sleep(800);
                 System.out.print(".");
             }
             Thread.sleep(500);
             System.out.println("");
             System.out.println("¡Has pasado por un bache! Tu amortiguador se ha dañado.");
-            Thread.sleep(1500);
+            Thread.sleep(1000);
             numeroBache++;
             amortiguador.bache();
             amortiguador.acomodar();
